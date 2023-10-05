@@ -1,0 +1,44 @@
+/* Estilos para la caja de comentarios */
+.comment-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 500px; /* Ancho máximo opcional */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f9f9f9; /* Color de fondo opcional */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra opcional */
+}
+
+/* Estilos para la etiqueta "Add a comment" */
+.comment-box label {
+    font-weight: bold;
+    display: block;
+}
+
+/* Estilos para el campo de texto de comentario */
+.comment-box textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical; /* Permite redimensionar verticalmente el campo de texto */
+}
+
+/* Estilos para el botón "Post Comment" */
+.comment-box .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición de color al pasar el mouse */
+}
+
+.comment-box .btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+}

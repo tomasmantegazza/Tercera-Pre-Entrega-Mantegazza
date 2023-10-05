@@ -1,0 +1,54 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ object.author }}</a>
+                <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+                {% if object.author == user %}
+                    <div>
+                        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+                    </div>
+                {% endif %}
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+        </div>
+    </article>
+
+    <!-- Mostrar los comentarios -->
+    <div class="comments-section">
+        <h3>Comments</h3>
+        {% for comment in comments %}
+            <div class="media content-section">
+                <img class="rounded-circle article-img" src="{{ comment.author.profile.image.url }}">
+                <div class="media-body">
+                    <p>{{ comment.content }}</p>
+                    <div class="article-metadata">
+                        <small class="text-muted">{{ comment.date_commented|date:"F d, Y" }} by {{ comment.author }}</small>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>There are no comments yet.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Formulario para agregar comentarios -->
+    {% if user.is_authenticated %}
+        <div class="comment-form">
+            <h3>Add a comment</h3>
+            <form method="post" action="{% url 'comment-create' object.pk %}">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit" class="btn btn-primary">Post comment</button>
+            </form>
+        </div>
+    {% else %}
+        <p>Sign in to add comments</p>
+    {% endif %}
+
+{% endblock content %}
