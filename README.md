@@ -1,10 +1,16 @@
 # MyDailyDrive
-Ejemplo de Blog automotor hecho con Django!
+Ejemplo de Blog hecho con Django!
 
 Este es un proyecto de ejemplo de un blog desarrollado utilizando el framework Django. El blog cuenta con funcionalidades como registro de usuarios, inicio de sesión, cierre de sesión, cambio de imagen de perfil, creación de publicaciones, edición de publicaciones, comentarios y eliminación de publicaciones.
 
+# Requisitos
+- Python
+- Django
+- django-crispy-forms
+- Pillow
+- 
 # Instalación
-Asegúrate de tener Python y Django instalados en tu sistema. Si no los tienes instalados, puedes seguir las instrucciones en la documentación oficial de Django para la instalación.
+Asegúrate de tener Python y Django instalados en tu sistema. 
 1. Clona el repositorio:
 
 2. Navega al directorio del proyecto:
